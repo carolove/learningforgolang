@@ -1,7 +1,6 @@
 package server
 
 import (
-	"encoding/json"
 	"fmt"
 	"net"
 	"os"
@@ -29,6 +28,7 @@ func (s *Server) Start() error {
 	defer s.listener.Close()
 	for {
 		conn, err := s.listener.Accept()
+		fmt.Println("accept a conn at server")
 		if err == nil {
 			go s.onConn(conn)
 		}
@@ -40,10 +40,6 @@ func (s *Server) onConn(c net.Conn) {
 	data := make([]byte, msg_length)
 	defer c.Close()
 
-	var recvdata map[string]string
-	recvdata = make(map[string]string, 2)
-	var senddata map[string]string
-	senddata = make(map[string]string, 2)
 	for {
 		n, err := c.Read(data)
 		if err != nil {
@@ -51,16 +47,10 @@ func (s *Server) onConn(c net.Conn) {
 			return
 		}
 
-		if err := json.Unmarshal(data[0:n], &recvdata); err == nil {
-			senddata["reqId"] = recvdata["reqId"]
-			senddata["resContent"] = "Hello " + recvdata["reqContent"]
-
-			sendjson, err := json.Marshal(senddata)
-			_, err = c.Write([]byte(sendjson))
-			if err != nil {
-				fmt.Printf("disconnect from lotus server")
-				return
-			}
+		_, err = c.Write(data[0:n])
+		if err != nil {
+			fmt.Printf("disconnect from lotus server")
+			return
 		}
 	}
 }
