@@ -2,8 +2,10 @@ package leason2
 
 import (
 	"fmt"
+	"sync"
 )
 
+// single with init
 var Animal *animal
 
 func init() {
@@ -22,4 +24,14 @@ func createAnimal(name string) *animal {
 
 func (an *animal) PrintName() {
 	fmt.Println(an.name)
+}
+
+// single with once
+var ani *animal
+var once sync.Once
+
+func GetAnimalInstance(name string) *animal {
+
+	once.Do(func() { ani = &animal{name} })
+	return ani
 }
