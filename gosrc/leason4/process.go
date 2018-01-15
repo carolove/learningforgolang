@@ -8,6 +8,7 @@ func (p *Proccess) Proc(ani leason3.Animal) {
 	ani.Eat()
 }
 
-func (p *Proccess) Proc1(fn func()) {
-	fn()
+func (p *Proccess) Proc1(fn func(context struct{})) {
+	tx := struct{}{}
+	fn(tx)
 }

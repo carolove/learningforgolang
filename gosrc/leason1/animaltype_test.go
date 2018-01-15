@@ -12,5 +12,6 @@ func Test_AnimalType(t *testing.T) {
 	if en == leason1.CAT {
 		fmt.Println(en)
 		en = leason1.DOG
+		fmt.Println(en)
 	}
 }

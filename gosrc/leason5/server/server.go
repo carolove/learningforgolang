@@ -26,31 +26,34 @@ func NewServer() *Server {
 
 func (s *Server) Start() error {
 	defer s.listener.Close()
+
 	for {
 		conn, err := s.listener.Accept()
 		fmt.Println("accept a conn at server")
 		if err == nil {
-			go s.onConn(conn)
+			s.onConn(conn)
 		}
 
 	}
 }
 
 func (s *Server) onConn(c net.Conn) {
-	data := make([]byte, msg_length)
-	defer c.Close()
+	go func() {
+		data := make([]byte, msg_length)
+		defer c.Close()
 
-	for {
-		n, err := c.Read(data)
-		if err != nil {
-			fmt.Printf("read message from lotus failed")
-			return
-		}
+		for {
+			n, err := c.Read(data)
+			if err != nil {
+				fmt.Printf("read message from lotus failed")
+				return
+			}
 
-		_, err = c.Write(data[0:n])
-		if err != nil {
-			fmt.Printf("disconnect from lotus server")
-			return
+			_, err = c.Write(data[0:n])
+			if err != nil {
+				fmt.Printf("disconnect from lotus server")
+				return
+			}
 		}
-	}
+	}()
 }

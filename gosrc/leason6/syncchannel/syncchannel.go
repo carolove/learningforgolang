@@ -48,7 +48,7 @@ func dofunc(i int) {
 			close(fh.ch)
 		} else {
 			lock.Unlock()
-			<-val.ch
+			<-val.ch // kv 对的锁
 			fmt.Println("output: ", val.Handler())
 		}
 		wg.Done()
