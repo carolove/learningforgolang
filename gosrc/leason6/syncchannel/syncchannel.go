@@ -15,6 +15,10 @@ var handlerMap map[int]*FuncHandler
 var wg sync.WaitGroup
 var lock sync.Mutex
 
+// 这个里面的waitgroup是为了让主线程不退出等待子协程执行结束以后再退出，是一种同步机制
+// dofunc的意义在于，让每次function调用都可以获取一个i的程序拷贝，goroutine的创建速度满与for循环的执行，会出现所有goroutine都将i看成9的风险，goroutine是一种异步机制
+// mutex是一个互斥锁，是一种互斥机制
+// chan在这里起到的是一种同步机制
 func main() {
 	handlerMap = make(map[int]*FuncHandler)
 	for i := 0; i < 10; i++ {
