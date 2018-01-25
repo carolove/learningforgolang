@@ -6,4 +6,5 @@ int main(int argc, char **argv) {
     scanf("%d%d", &x, &y);
     m = x*y;
     printf("x:%d, y:%d, m:%d\n", x,y,m);
+    return -1;
 }
