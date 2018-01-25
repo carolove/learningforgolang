@@ -3,3 +3,12 @@ out
 *.iml
 debug.test
 main
+main
+*.o
+*.gcda
+*.gcno
+*.gcov
+redis.info
+lcov-html
+Makefile.dep
+dict-benchmark
