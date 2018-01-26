@@ -15,7 +15,7 @@ all: $(REDIS_SERVER_NAME)
 
 # redis-server
 $(REDIS_SERVER_NAME): $(REDIS_SERVER_OBJ)
-	$(CC) -o $@ $^
+	$(CC) -g -o $@ $^
 
 # Because the jemalloc.h header is generated as a part of the jemalloc build,
 # building it should complete before building any other object. Instead of
