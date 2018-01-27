@@ -1,0 +1,9 @@
+[package]
+
+name = "lesson3"
+version = "0.0.1"
+authors = [ "doke.hi@gmail.com" ]
+
+[dependencies]
+
+rand = "0.3.0"
