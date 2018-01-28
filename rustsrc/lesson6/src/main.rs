@@ -20,4 +20,8 @@ fn  main(){
 
     println!("p2.y is {}", p2.y);
 
+    p2.y = 45;
+
+    println!("p2.y is {}", p2.y);
+
 }
