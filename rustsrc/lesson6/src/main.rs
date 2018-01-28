@@ -1,8 +1,14 @@
 use std::sync::Arc;
+use std::cell::Cell;
 
 struct Point {
     x: i32,
     y: i32,
+}
+
+struct Point1 {
+    x: i32,
+    y: Cell<i32>,
 }
 
 fn  main(){
@@ -20,8 +26,13 @@ fn  main(){
 
     println!("p2.y is {}", p2.y);
 
-    p2.y = 45;
+    let p3 : Point1 = Point1{x:67, y:Cell::new(36)};
 
-    println!("p2.y is {}", p2.y);
+    println!("p3.y is {:?}", p3.y);
+
+    p3.y.set(199);
+
+    println!("p3.y is {:?}", p3.y);
+
 
 }
