@@ -1,0 +1,6 @@
+[package]
+name = "rustsrc"
+version = "0.1.0"
+authors = ["doke.hi <doke.hi@gmail.com>"]
+
+[dependencies]
