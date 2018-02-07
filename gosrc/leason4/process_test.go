@@ -19,10 +19,10 @@ func Test_Proc(t *testing.T) {
 
 func Test_Proc1(t *testing.T) {
 	proc := &leason4.Proccess{}
-	proc.Proc1(func() {
+	proc.Proc1(func(context struct{}) {
 		fmt.Println("i eat bones")
 	})
-	proc.Proc1(func() {
+	proc.Proc1(func(context struct{}) {
 		fmt.Println("i eat fish")
 	})
 }
