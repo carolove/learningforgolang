@@ -13,3 +13,4 @@ lcov-html
 Makefile.dep
 dict-benchmark
 target
+vendor
