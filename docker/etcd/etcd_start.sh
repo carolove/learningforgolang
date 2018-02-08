@@ -20,5 +20,5 @@ THIS_IP=${HOST_1}
 
 docker pull xieyanze/etcd3:latest
 
-docker run -d -p 2379:2379 -p 2380:2380 -p 4001:4001 -p 7001:7001 --name etcd-v3 quay.io/coreos/etcd:${ETCD_VERSION} \
-	/usr/local/bin/etcd
+docker run --name etcd-v3 -d -v ~/temp/etcd/:/data \
+          -p 2379:2379 -p 2380:2380 xieyanze/etcd3:latest
