@@ -3,12 +3,11 @@ debug: true
 
 log: 
   loggers:
+  - level: info
+    writers: text
   - name: 'runtime'
     level: debug
     writers: text
   writers:
-    - name: text
-      type: console
-      layout: '[{L}]{T}: {M} - {F:S}{N}'
-      options:
-        colorized: true
+  - name: text
+    layout: '[{L}]{T}: {M} - {F:S}{N}'
