@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "poll.h": "c",
+        "string.h": "c",
+        "errno.h": "c",
+        "time.h": "c"
+    }
+}
