@@ -1,1 +1,6 @@
 name: 'test.service'
+
+global:
+  registry:
+    store:
+      backend: 'etcd'

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/cuigh/auxo/net/rpc"
+	"github.com/carolove/learningforgolang/framework/net/rpc/server"
 	"github.com/cuigh/auxo/net/rpc/codec/json"
 	"github.com/cuigh/auxo/net/transport"
 )
@@ -19,7 +19,7 @@ func (TestService) Hello(ctx context.Context, name string) string {
 }
 
 func main() {
-	s, _ := rpc.Listen(transport.Address{URL: ":9000"})
+	s, _ := server.Listen(transport.Address{URL: ":9000"})
 	s.Match(json.Matcher, "json")
 	//s.Match(jsoniter.Matcher, "json")
 	//s.Match(proto.Matcher, "proto")
