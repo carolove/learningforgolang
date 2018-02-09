@@ -15,3 +15,4 @@ dict-benchmark
 target
 vendor
 debug
+*.log

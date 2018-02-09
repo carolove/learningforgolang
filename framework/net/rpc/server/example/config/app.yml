@@ -11,3 +11,6 @@ log:
   writers:
   - name: text
     layout: '[{L}]{T}: {M} - {F:S}{N}'
+    type: file
+    options:
+      name: 'runtime.log'
