@@ -1,0 +1,28 @@
+name: rpcserver
+banner: true
+
+rpc:
+  server:
+    test:
+      desc: "test service"
+      version: 1.0
+      address:
+      - url: :9000
+      - url: tls://:9001
+        options:
+#          register: true
+          tls_key: "test.key"
+          tls_cert: "test.cert"
+      - url: unix:///var/run/test.sock
+        register: false
+      registry:
+        name: etcd
+        options:
+          address: 127.0.0.1:2379
+          heartbeat_interval: 30s
+      heartbeat_interval: 30s
+      max_clients: 1000
+      max_pool_size: 1024
+      backlog: 10000
+      read_timeout: 10s
+      write_timeout: 10s

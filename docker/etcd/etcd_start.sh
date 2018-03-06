@@ -20,5 +20,5 @@ THIS_IP=${HOST_1}
 
 docker pull xieyanze/etcd3:latest
 
-docker run --name etcd-v3 -d -v ~/temp/etcd/:/data \
+docker run --rm --name etcd-v3 -d -v ~/temp/etcd/:/data \
           -p 2379:2379 -p 2380:2380 xieyanze/etcd3:latest

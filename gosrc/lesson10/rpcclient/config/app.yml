@@ -1,0 +1,31 @@
+name: rpcclient
+banner: true
+
+rpc:
+  client:
+    test:
+      desc: "test service"
+      version: >=1.0, <2
+      group: api
+      fail: fast
+      address:
+      - url: "127.0.0.1:9000"
+      - url: "tls://localhost:9001"
+        options:
+          tls_key: "test.key"
+          tls_cert: "test.cert"
+      codec:
+        name: proto
+        options:
+          max_size: 2m
+      balancer:
+        name: random
+      resolver:
+        name: etcd
+        options:
+          address: 127.0.0.1:2379
+          refresh_interval: 30s
+      channels: 4
+      dial_timeout: 10s
+      read_timeout: 10s
+      write_timeout: 10s
