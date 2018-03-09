@@ -16,3 +16,4 @@ target
 vendor
 debug
 *.log
+private
