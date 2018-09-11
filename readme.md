@@ -14,3 +14,7 @@
 ## 程序配置
 - command + p -> > c&&c++: configuration -> add includes
 - debug launch -> add absolute path of the exec
+
+## 正则匹配
+- () 标记一个子表达式的开始和结束位置。子表达式可以获取供以后使用。要匹配这些字符，请使用 \( 和 \), 
+- example: ,(\d) => \t$1
