@@ -24,3 +24,4 @@
 
 ## 对于golang的matrix数组的初始化
 - arr := make([][]int, length); for i:=0;i<lenght;i++ {arr[i] = make([]int, length)}
+- 对于一个初始化好的arr[3][4]三行四列的数组，len(a)==3代表着a有多少行 len(a[0])==4代表着第一行有多少列
