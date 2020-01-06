@@ -21,3 +21,6 @@
 
 ## 查询进程使用的fd相关信息
 - lsof -p  9785 | awk '{print $9}'| awk -F"->" '{print $2}' | sort -n | uniq -c | head -n 50
+
+## 对于golang的matrix数组的初始化
+- arr := make([][]int, length); for i:=0;i<lenght;i++ {arr[i] = make([]int, length)}
